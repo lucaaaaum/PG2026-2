@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.11)
 project(PG2026-2)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Define o padrão do C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
