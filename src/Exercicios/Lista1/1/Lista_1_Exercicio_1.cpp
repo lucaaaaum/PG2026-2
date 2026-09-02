@@ -179,9 +179,12 @@ int main() {
     glUniform4f(colorLoc, 0.0f, 0.0f, 1.0f,
                 1.0f); // enviando cor para variável uniform inputColor
 
-    // Chamada de desenho - drawcall
-    // Poligono Preenchido - GL_TRIANGLES
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 6); // Área do polígono
+    glUniform4f(colorLoc, 1.0f, 0.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_LINE_LOOP, 0, 3); // Arestas do primeiro triângulo
+    glDrawArrays(GL_LINE_LOOP, 3, 3); // Arestas do segundo triângulo
+    glUniform4f(colorLoc, 0.0f, 1.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_POINTS, 0, 6);    // Vértices do polígono
 
     // glBindVertexArray(0); // Desnecessário aqui, pois não há múltiplos VAOs
 
