@@ -42,6 +42,10 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action,
 int setupShader();
 int setupGeometry();
 
+bool desenharPolígonoPreenchido = true;
+bool desenharContorno = true;
+bool desenharVértices = true;
+
 // Dimensões da janela (pode ser alterado em tempo de execução)
 const GLuint WIDTH = 800, HEIGHT = 600;
 
@@ -179,12 +183,18 @@ int main() {
     glUniform4f(colorLoc, 0.0f, 0.0f, 1.0f,
                 1.0f); // enviando cor para variável uniform inputColor
 
-    glDrawArrays(GL_TRIANGLES, 0, 6); // Área do polígono
+    if (desenharPolígonoPreenchido) {
+      glDrawArrays(GL_TRIANGLES, 0, 6); // Área do polígono
+    }
     glUniform4f(colorLoc, 1.0f, 0.0f, 0.0f, 1.0f);
-    glDrawArrays(GL_LINE_LOOP, 0, 3); // Arestas do primeiro triângulo
-    glDrawArrays(GL_LINE_LOOP, 3, 3); // Arestas do segundo triângulo
+    if (desenharContorno) {
+      glDrawArrays(GL_LINE_LOOP, 0, 3); // Arestas do primeiro triângulo
+      glDrawArrays(GL_LINE_LOOP, 3, 3); // Arestas do segundo triângulo
+    }
     glUniform4f(colorLoc, 0.0f, 1.0f, 0.0f, 1.0f);
-    glDrawArrays(GL_POINTS, 0, 6);    // Vértices do polígono
+    if (desenharVértices) {
+      glDrawArrays(GL_POINTS, 0, 6); // Vértices do polígono
+    }
 
     // glBindVertexArray(0); // Desnecessário aqui, pois não há múltiplos VAOs
 
@@ -205,6 +215,21 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action,
                   int mode) {
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GL_TRUE);
+  if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
+    desenharPolígonoPreenchido = !desenharPolígonoPreenchido;
+    cout << "Polígono preenchido: "
+         << (desenharPolígonoPreenchido ? "ligado" : "desligado") << endl;
+  }
+  if (key == GLFW_KEY_2 && action == GLFW_PRESS) {
+    desenharContorno = !desenharContorno;
+    cout << "Contorno: " << (desenharContorno ? "ligado" : "desligado")
+         << endl;
+  }
+  if (key == GLFW_KEY_3 && action == GLFW_PRESS) {
+    desenharVértices = !desenharVértices;
+    cout << "Vértices: " << (desenharVértices ? "ligado" : "desligado")
+         << endl;
+  }
 }
 
 // Esta função está bastante hardcoded - objetivo é compilar e "buildar" um
@@ -268,13 +293,13 @@ int setupGeometry() {
   GLfloat vertices[] = {
       // x   y     z
       // T0
-      -0.5, 0.5, 0.0, // v0
-      -0.5,  -0.5, 0.0, // v1
-      0.0,  0.0,  0.0, // v2
+      -0.5, 0.5, 0.0,  // v0
+      -0.5, -0.5, 0.0, // v1
+      0.0, 0.0, 0.0,   // v2
                        // T1
-      0.0,  0.0,  0.0, // v3
-      0.5,  -0.5,  0.0, // v4
-      0.5,  0.5,  0.0 // v5
+      0.0, 0.0, 0.0,   // v3
+      0.5, -0.5, 0.0,  // v4
+      0.5, 0.5, 0.0    // v5
   };
 
   GLuint VBO, VAO;
