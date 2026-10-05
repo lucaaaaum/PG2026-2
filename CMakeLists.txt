@@ -19,6 +19,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include/glad)
 # OBS.: Não pode ter acentos ou caracteres especiais
 set(EXERCISES
     Exemplos/HelloTriangle
+    Exercicios/Lista1/1
 )
 
 add_compile_options(-Wno-pragmas)
