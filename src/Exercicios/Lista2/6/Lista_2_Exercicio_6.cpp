@@ -56,15 +56,6 @@ int setupGeometry(vector<GLfloat> vertices);
 // Dimensões da janela (pode ser alterado em tempo de execução)
 const GLuint WIDTH = 800, HEIGHT = 600;
 
-const vector<GLfloat> cores = {
-    1.0f, 0.0f, 0.0f, // vermelho
-    0.0f, 1.0f, 0.0f, // verde
-    0.0f, 0.0f, 1.0f, // azul
-    1.0f, 1.0f, 0.0f, // amarelo
-    1.0f, 0.5f, 0.5f, // rosa
-    1.0f, 1.0f, 1.0f, // branco
-};
-
 // Vértices dos triângulos (x, y, z), em pixels. Fica fora das funções para que
 // a função de clique do mouse também consiga acessar
 vector<GLfloat> vertices;
