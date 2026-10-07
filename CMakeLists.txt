@@ -21,6 +21,7 @@ set(EXERCISES
     Exemplos/HelloTriangle
     Exercicios/Lista1/1
     Exercicios/Lista1/2
+    Exercicios/Lista1/3
 )
 
 add_compile_options(-Wno-pragmas)
