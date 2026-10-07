@@ -20,6 +20,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include/glad)
 set(EXERCISES
     Exemplos/HelloTriangle
     Exercicios/Lista1/1
+    Exercicios/Lista1/2
 )
 
 add_compile_options(-Wno-pragmas)
