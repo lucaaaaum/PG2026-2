@@ -28,6 +28,7 @@ set(EXERCISES
     Exercicios/Lista2/3
     Exercicios/Lista2/4
     Exercicios/Lista2/5
+    Exercicios/Lista2/6
 )
 
 add_compile_options(-Wno-pragmas)
