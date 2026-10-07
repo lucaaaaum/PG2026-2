@@ -23,7 +23,7 @@ Binaries are produced per-exercise in `build/` (e.g. `build/HelloTriangle`).
 
 ## Adding a new exercise
 
-`CMakeLists.txt` builds one executable per entry in the `EXERCISES` list (around line 18). Each entry is a path relative to `src/`, and the executable name is the last path component:
+`CMakeLists.txt` builds one executable per entry in the `EXERCISES` list (around line 18). Each entry is a path relative to `src/`, and the executable name is the last path component, prefixed with the list folder when it starts with `Lista` (e.g. `Exercicios/Lista2/1` → `build/Lista2_1`, `Exemplos/HelloTriangle` → `build/HelloTriangle`):
 
 ```cmake
 set(EXERCISES

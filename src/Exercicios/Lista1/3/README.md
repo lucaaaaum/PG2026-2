@@ -93,7 +93,7 @@ A partir da raiz do repositório:
 ```sh
 cmake -S . -B build
 cmake --build build
-./build/3
+./build/Lista1_3
 ```
 
 ---

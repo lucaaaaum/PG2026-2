@@ -53,6 +53,14 @@ foreach(EXERCISE ${EXERCISES})
     # Extrai o nome da pasta como nome do executável
     get_filename_component(EXE_NAME ${EXERCISE} NAME)
 
+    # Exercícios de listas recebem o nome da lista como prefixo (ex.: Lista1_1),
+    # para não repetir nomes entre listas diferentes
+    get_filename_component(PARENT_DIR ${EXERCISE} DIRECTORY)
+    get_filename_component(PARENT_NAME ${PARENT_DIR} NAME)
+    if(PARENT_NAME MATCHES "^Lista")
+        set(EXE_NAME ${PARENT_NAME}_${EXE_NAME})
+    endif()
+
     # Coleta todos os .cpp dentro do diretório do exercício
     file(GLOB EXE_SOURCES src/${EXERCISE}/*.cpp)
 

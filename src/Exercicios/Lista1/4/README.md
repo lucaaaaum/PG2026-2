@@ -81,7 +81,7 @@ A partir da raiz do repositório:
 ```sh
 cmake -S . -B build
 cmake --build build
-./build/4
+./build/Lista1_4
 ```
 
 ---
